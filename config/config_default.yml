@@ -1,0 +1,73 @@
+use_wandb: False
+dataset:
+    name: 'dataset'
+    records_path: null
+    initial_dataset: ''
+    label_schema: ["1", "0"] # ["1", "2", "3", "4", "5"]
+    max_samples: 50
+    semantic_sampling: True # Change to True in case you don't have M1. Currently there is an issue with faiss and M1
+
+predictor:
+    method : 'llm'
+    config:
+        llm:
+            type: 'OpenAI'
+            name: 'gpt-3.5-turbo' #'gpt-3.5-turbo'  
+#            async_params:
+#                retry_interval: 10
+#                max_retries: 2
+            model_kwargs: {"seed": 220}
+        num_workers: 5
+        prompt: 'prompts/predictor_completion/prediction.prompt'
+        mini_batch_size: 1  #change to >1 if you want to include multiple samples in the one prompt
+        mode: 'prediction'
+
+meta_prompts:
+    folder: 'prompts/meta_prompts_classification'
+    num_err_prompt: 1  # Number of error examples per sample in the prompt generation
+    num_err_samples: 2 # Number of error examples per sample in the sample generation
+    history_length: 4 # Number of sample in the meta-prompt history
+    num_generated_samples: 20 # Number of generated samples at each iteration
+    num_initialize_samples: 20 # Number of generated samples at iteration 0, in zero-shot case
+    samples_generation_batch: 20 # Number of samples generated in one call to the LLM
+    num_workers: 5 #Number of parallel workers
+    warmup: 1 # Number of warmup steps
+
+eval:
+    function_name: 'accuracy'
+    num_large_errors: 4
+    num_boundary_predictions : 0
+    error_threshold: 0.5
+
+llm:
+    type: 'OpenAI'
+    name: 'gpt-3.5-turbo'
+    temperature: 0.8
+
+stop_criteria:
+    max_usage: 2 #In $ in case of OpenAI models, otherwise number of tokens
+    patience: 10 # Number of patience steps
+    min_delta: 0.01 # Delta for the improvement definition
+
+annotator:
+#  method: ''
+  method: 'llm'
+  config:
+      llm:
+          type: 'OpenAI'
+          name: 'gpt-3.5-turbo'
+      instruction:
+          "Assess this generated message, 
+          1. does it align with the intent of user input,
+          2. does it rephrase user input,
+          3. is it in Simplified Chinese?
+          If all the three answers are Yes, then response '1', otherwise response '0'"
+#          "评价这条聊天语句，
+#          1.是否与用户原本的输入(user)所表达的意图一致，
+#          2.是否在改写用户原本的输入，
+#          3.是否为中文，
+#          若均为是，则返回'1'，否则返回'0'"
+      num_workers: 5
+      prompt: 'prompts/predictor_completion/prediction.prompt'
+      mini_batch_size: 1
+      mode: 'annotation'

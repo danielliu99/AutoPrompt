@@ -1,0 +1,26 @@
+annotator:
+    method : ''
+
+dataset:
+    max_samples: 50
+    initial_dataset: '/content/drive/MyDrive/CodeRepo/AutoPrompt/dataset/initial_samples.csv'
+    label_schema: ["1", "0"] # ["1", "2", "3", "4", "5"]
+
+predictor:
+    method : 'llm'
+    config:
+        prompt: 'prompts/predictor_completion/prediction_generation.prompt'
+        mini_batch_size: 1
+        llm:
+            type: 'OpenAI'
+            name: 'gpt-3.5-turbo' #'gpt-3.5-turbo-0613'
+        num_workers: 7
+
+meta_prompts:
+    folder: 'prompts/meta_prompts_generation'
+    warmup: 1
+
+eval:
+    function_name: 'ranking'
+    error_threshold: 0.5
+

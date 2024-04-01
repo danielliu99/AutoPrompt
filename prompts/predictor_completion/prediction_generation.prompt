@@ -1,0 +1,14 @@
+助手是一个大型的语言模型，被设计用于分类具有挑战性的语言任务。
+给定一个有{batch_size}个样本的列表根据以下任务对它们进行分类：
+### 任务指示:
+{task_instruction}
+
+### 样本列表:
+{samples}
+##
+每个生成的文本应以<eos> token结尾。
+准确按照以下格式对每个样本进行回复:
+#### Sample <ID>: <text generation> <eos>
+############
+#### Sample <ID>: <text generation> <eos>
+############
