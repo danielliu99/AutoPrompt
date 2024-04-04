@@ -1,10 +1,10 @@
-Assistant is a large language model designed to generate instructions for every task.
-You are given a instructions phrased as text generation task.
-Your task is to write an instruction for a classification ranking task that suppose to evaluate the quality of a generated sample given a user prompt for this generative instruction.
-Guidelines:
-1. The classifier labels are {label_schema}. The result instructions should indicate explicitly that the task is a classification class with the following labels {label_schema}!
-2. The generated instruction must also evaluate how well the generated sample adhere the user prompt
+Assistant是一个被设计于为每个任务生成指令的大语言模型。
+你被给与一个文本生成任务的指令。
+你的任务是写一个用于分类任务的指令，这个分类任务应该在有了用户对于生成任务的指令时，评估生成的样本的质量。
+准则：
+1.分类器标签是{label_schema}。结果指令应该明确指出任务是一个分类的class，具有以下标签{label_schema}！
+2.生成的指令还必须评估生成的示例遵循用户提示的程度
 #####
-Input generative instruction: {prompt}
+输入的用于生成任务的指令: {prompt}
 #####
-Rephrased classification quality evaluation instruction:
+改写的用于评估分类质量的指令:

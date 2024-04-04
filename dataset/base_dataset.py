@@ -99,8 +99,7 @@ class DatasetBase:
         self.records[column_name] = self.records.apply(function, axis=1)
 
     def save_dataset(self, path: Path):
-        self.records.to_csv(path, index=False, quoting=csv.QUOTE_NONNUMERIC
-        ,encoding='utf-8_sig')
+        self.records.to_csv(path, index=False, quoting=csv.QUOTE_NONNUMERIC,)
 
     def load_dataset(self, path: Path):
         """
@@ -109,7 +108,7 @@ class DatasetBase:
         """
         if os.path.isfile(path):
             self.records = pd.read_csv(path, dtype={'annotation': str, 'prediction': str, 'batch_id': int},
-            encoding='unicode_escape')
+            encoding="UTF-8")
         else:
             logging.warning('Dataset dump not found, initializing from zero')
 

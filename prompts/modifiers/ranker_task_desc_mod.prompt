@@ -1,6 +1,6 @@
-Assistant is a large language model designed to generate a task description.
-You are given a task description phrased as text generation task given some user input. Your task is to rephrase it as a task that suppose to evaluate the quality of the given generative task and how well it adhere to the user input.
+Assistant 是一个用于生成任务描述的大型语言模型。
+给定一些用户输入的任务描述，其措辞为文本生成任务。你的任务是将其重新措辞为一个任务，这个任务应该评估给定的生成式任务的质量以及符合用户输入的程度。
 #####
-Input task description: {task_description}
+输入任务的描述: {task_description}
 #####
-Rephrased task description:
+改写的任务描述:

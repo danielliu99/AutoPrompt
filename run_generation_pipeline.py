@@ -22,7 +22,7 @@ parser.add_argument('--num_generation_steps', default=20, type=int, help='Number
 
 opt = parser.parse_args()
 
-print(opt.prompt)
+# print(opt.prompt)
 
 ranker_config_params = override_config(opt.ranker_config_path)
 generation_config_params = override_config(opt.generation_config_path)
@@ -49,6 +49,7 @@ if opt.load_dump != '':
     ranker_pipeline.predictor.init_chain(ranker_config_params.dataset.label_schema)
 
 if (ranker_pipeline.cur_prompt is None) or (ranker_pipeline.task_description is None):
+    """根据初始prompt和description，修改用于优化ranker的prompt和task description (prompts/modifiers)"""
     ranker_mod_prompt, ranker_mod_task_desc = modify_input_for_ranker(ranker_config_params, task_description,
                                                                       initial_prompt)
     ranker_pipeline.cur_prompt = ranker_mod_prompt

@@ -39,15 +39,21 @@ def get_llm(config: dict):
                               openai_api_key=LLM_ENV['openai']['OPENAI_API_KEY'],
                               model_kwargs=model_kwargs)
         else:
+            print("Get LLM OpenAI!!!")
             return ChatOpenAI(temperature=temperature, model_name=config['name'],
                               openai_api_key=LLM_ENV['openai']['OPENAI_API_KEY'],
                               openai_organization=LLM_ENV['openai']['OPENAI_ORGANIZATION'],
                               model_kwargs=model_kwargs)
     elif config['type'] == 'Azure':
-        return AzureChatOpenAI(temperature=temperature, deployment_name=config['name'],
-                        openai_api_key=LLM_ENV['azure']['AZURE_OPENAI_API_KEY'],
-                        azure_endpoint=LLM_ENV['azure']['AZURE_OPENAI_ENDPOINT'],
-                        openai_api_version=LLM_ENV['azure']['OPENAI_API_VERSION'])
+        # return AzureChatOpenAI(temperature=temperature, deployment_name=config['name'],
+        #                 openai_api_key=LLM_ENV['azure']['AZURE_OPENAI_API_KEY'],
+        #                 azure_endpoint=LLM_ENV['azure']['AZURE_OPENAI_ENDPOINT'],
+        #                 openai_api_version=LLM_ENV['azure']['OPENAI_API_VERSION'])
+        print("Get LLM Azure!!!")
+        return AzureChatOpenAI(temperature=0.8, deployment_name="gpt-4-1106",
+                        openai_api_key="9e972e3bfc274b1085adce055c1be64a",
+                        azure_endpoint="https://chatgpt-south-india.openai.azure.com",
+                        openai_api_version="2024-02-15-preview")
 
     elif config['type'] == 'Google':
         from langchain_google_genai import ChatGoogleGenerativeAI
@@ -73,7 +79,7 @@ def load_yaml(yaml_path: str, as_edict: bool = True) -> edict:
     :param as_edict: If True, returns an EasyDict configuration
     :return: An EasyDict configuration
     """
-    with open(yaml_path, 'r') as file:
+    with open(yaml_path, 'r', encoding='UTF-8') as file:
         yaml_data = yaml.safe_load(file)
         if 'meta_prompts' in yaml_data.keys() and 'folder' in yaml_data['meta_prompts']:
             yaml_data['meta_prompts']['folder'] = Path(yaml_data['meta_prompts']['folder'])
@@ -87,7 +93,7 @@ def load_prompt(prompt_path: str) -> PromptTemplate:
     Reads and returns the contents of a prompt file.
     :param prompt_path: The path to the prompt file
     """
-    with open(prompt_path, 'r') as file:
+    with open(prompt_path, 'r', encoding='UTF-8') as file:
         prompt = file.read().rstrip()
     return PromptTemplate.from_template(prompt)
 

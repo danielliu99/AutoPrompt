@@ -3,7 +3,7 @@ annotator:
 
 dataset:
     max_samples: 50
-    initial_dataset: '/content/drive/MyDrive/CodeRepo/AutoPrompt/dataset/initial_samples.csv'
+    initial_dataset: '' # '/content/drive/MyDrive/CodeRepo/AutoPrompt/dataset/initial_samples.csv'
     label_schema: ["1", "0"] # ["1", "2", "3", "4", "5"]
 
 predictor:
@@ -12,7 +12,7 @@ predictor:
         prompt: 'prompts/predictor_completion/prediction_generation.prompt'
         mini_batch_size: 1
         llm:
-            type: 'OpenAI'
+            type: 'OpenAI' # 'OpenAI'
             name: 'gpt-3.5-turbo' #'gpt-3.5-turbo-0613'
         num_workers: 7
 

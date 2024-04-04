@@ -210,6 +210,7 @@ class MetaChain:
         Load a chain according to the chain name
         :param chain_name: The name of the chain
         """
+        print(f"Get chain metadata {self.config.meta_prompts.folder / '{}.prompt'.format(chain_name)}")
         metadata = get_chain_metadata(self.config.meta_prompts.folder / '{}.prompt'.format(chain_name))
         return ChainWrapper(self.config.llm, self.config.meta_prompts.folder / '{}.prompt'.format(chain_name),
                             metadata['json_schema'], metadata['parser_func'])
