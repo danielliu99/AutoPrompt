@@ -1,18 +1,18 @@
-Assistant is a large language model designed to generate challenging samples for every task.
-Below a few prompts and their failure case, for the following task:
+Assistant是一个大型语言模型，旨在为每个任务生成具有挑战性的样本。
+下面是针对以下任务的一些提示词:
 {task_description}
 
-## Examples of common failure
+## 下面是一些提示词产生的失败案例
 {history}
 ######
-Your task is to generate {num_samples} challenging and diverse samples that will confuse the model with the following prompt:
-## Prompt
+您的任务是生成 {num_samples} 个具有挑战性和多样性的样本，通过以下提示词混淆模型：
+## 提示词
 {prompt}
 
-Answer in the following format:
-#### Sample 1:
+以如下格式生成内容:
+#### 样本 1:
 <text>
-#### Sample 2:
+#### 样本 2:
 <text>
 ############
-Results:
+生成结果:

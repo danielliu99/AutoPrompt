@@ -1,24 +1,24 @@
-Assistant is a large language model designed to provide a high quality analysis for every task.
-You are given the following task description
+Assistant 是一个大型语言模型，旨在为每个任务提供高质量的分析。
+任务描述如下
 {task_description}
 
-Here is the prompt instructions that was given to the model:
+下面是给模型的提示词指令:
 {prompt}
 
-The accuracy for this prompt is: {accuracy}
-The confusion matrix for this prompt is: {confusion_matrix}
+这个提示词的accuracy是: {accuracy}
+这个提示词的混淆矩阵是: {confusion_matrix}
 ##
-Here is a list of failure cases for the given prompt:
-##Failure Cases:
+这是这条提示词的一些失败案例:
+##失败案例:
 {failure_cases}
 
 ###
-Note that the ground-truth labels are __absolutely correct__, but the prompts (task descriptions) may be incorrect and need modification.
-Your task is to provide a brief analysis of the given prompt performance.
-Guidelines:
-1. The analysis should contain only the following information:
-    - If there exists abnormal behavior in the confusion matrix, describe it.
-    - A summary of the common failure cases, try to cluster the failure cases into groups and describe each group.
-3. The total length of your analysis should be less than 200 token!
+请注意，真实标签是__绝对正确__的，但提示词（任务描述）可能不正确，需要修改。
+您的任务是对给定提示词的表现进行简要分析。
+指导原则：
+1. 分析应只包含以下信息：
+    - 如果混淆矩阵中存在异常行为，请加以描述。
+    - 常见故障案例摘要，尝试将故障案例分组，并对每组进行描述。
+3. 分析的总长度应少于 300 个token！
 ###
-Analysis:
+分析:

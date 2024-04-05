@@ -1,4 +1,2 @@
-python run_generation_pipeline.py --prompt "Write a good and comprehensive movie review about a specific movie." --task_description "Assistant is a large language model that is tasked with writing movie reviews."
 
-
-python run_generation_pipeline.py --prompt D:\CodeRepo\AutoPrompt\initial_input\prompt.txt --task_description D:\CodeRepo\AutoPrompt\initial_input\task_description.txt --num_ranker_steps 1 --num_generation_steps 10
+python run_generation_pipeline.py --prompt initial_input/prompt.txt --task_description initial_input/task_description.txt --num_ranker_steps 1 --num_generation_steps 5

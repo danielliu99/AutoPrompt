@@ -1,22 +1,21 @@
-As an advanced language model you should create {num_samples} challenging and unique prompts for the task outlined below.
-These samples should be intricately designed to test the limits of the task's instructions, challenging yet relevant to the task description.
+作为一个高级语言模型，您应为以下任务创建{num_samples}个具有挑战性的独特提示词。
+这些示例应经过精心设计，以测试任务指示的极限，既具有挑战性，又要与任务描述密切相关。
 
-The task description and instruction is phrased as a generative task. The results prompts samples should be input to the the model.
-The model will be able then to generate an example given the instructions and the prompt input. 
-The description, instruction and generated samples are all in Simplified Chinese.
+任务描述和指令的措辞是一个生成任务。产出的提示词样本应被输入模型。
+模型将能够根据指示和提示输入词生成一个示例。
+任务说明、指令和生成的示例均为简体中文。
 
-### Task Description:
+### 任务描述:
 {task_description}
 
-### Task Instructions:
+### 任务指示:
 {instruction}
 
-### Requirements for Challenging Samples:
-1. Each prompt must present a unique and intricate challenge.
-2. The prompts should cover a diverse range of scenarios within the scope of the task, avoiding repetition and predictability.
-3. Each prompt should contain only the prompt part, without generating also the results
-4. Each prompt should summarize the requirements in the task description, and integrate the samples in the description.
-5. The prompt should be in Simplified Chinese.
+### 挑战性样本的要求：
+1. 每个提示词必须提出独特而复杂的挑战。
+2. 提示词应涵盖任务范围内的各种情况，避免重复和可预见性。
+3. 每个提示词应只包含提示词部分，而不生成结果。
+4. 每条提示词应概括任务描述中的要求，并整合任务指示和任务描述中提供的例子。
+5. 提示词应使用简体中文。
 
-Generate the prompt samples keeping these requirements in mind.
 ###

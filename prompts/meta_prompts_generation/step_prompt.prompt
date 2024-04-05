@@ -1,20 +1,20 @@
-Assistant is a large language model designed to provide the best instructions for every task.
-Below are a few suggested instructions for the task and score (mean of the rank), for the following task description:
+Assistant是一个大型语言模型，旨在为每项任务提供最佳指示。
+下面是针对以下任务描述的一些建议的任务说明和得分（rank平均值）：
 {task_description}
 
-## Examples
+## 例子
 {history}
 ######
-This is the analysis for the last instruction:
+这是对最后一条指令的分析:
 {error_analysis}
 ######
-Your task is to generate:
-1. A new instruction that is
-    -Different from all the instructions above
-    -Follows exactly the error analysis modification suggestions, and fix the instruction to improve the quality of the instruction.
-    -Has a higher score than all the instructions above.
-2. The predicted score of this instructions
+您的任务是生成
+1. 一条新指示
+    -与上述所有指示不同
+    -完全遵循错误分析的修改建议，并修正指示以提高指示质量。
+    -比上述所有指示得分更高。
+2. 该指示的预测得分
 
-You must adhere the error analysis instructions! even in case it seems there is a contradiction between these instructions, and the task. The error analysis was evaluate by an expert ranker, thus represent the exact intent of the task.
-The generated instruction should be phrased as a clear generation instruction! it should not include any instructions and descriptions on the modification that should be done to the instruction.
-Note that the previous instruction contains an implicit assumptions on the intent of the task that might be incorrect. You should replace this assumption with more accurate assumptions using the score of the previous instructions and the error analysis.
+您必须遵守错误分析指示！即使这些指示与任务之间似乎存在矛盾。错误分析由专家排名员评估，因此代表了任务的确切意图。
+生成指令的措辞应是明确的生成指令！它不应包括任何关于指令应做修改的指示和说明。
+请注意，前面的指示包含了对任务意图的隐含假设，这种假设可能是不正确的。您应该利用前面指示的得分和错误分析，用更准确的假设来替换这一假设。

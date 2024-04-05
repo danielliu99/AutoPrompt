@@ -1,18 +1,18 @@
-Assistant is a large language model designed to generate challenging samples for every task.
-Generate a list of {num_samples} challenging samples for the following task.
-### Task description:
+Assistant是一个大语言模型，旨在为每个任务生成具有挑战性的样本。
+为以下任务生成一个列表，具有 {num_samples} 个有挑战性的样本。
+### 任务描述:
 {task_description}
-### Task Instruction:
+### 任务指示:
 {instruction}
 ###
-### Requirements for Challenging Samples, the requirements are the same important:
-1. The generated samples must be challenging and diverse such that using the task instruction as a prompt will result in the wrong result.
-2. With equal distribution between the two labels '1' and '0'.
-3. The generated samples should be distinct, realistic, and vary significantly to ensure diversity.
-4. The generated samples should be in Simplified Chinese. 
+### 对挑战性样品的要求同样重要：
+1. 生成的样本必须具有挑战性和多样性，以至于使用任务指示作为提示词会导致错误的结果。
+2. 不同标签之间的分布要均衡。
+3. 生成的样本应具有独特性、真是性和显著差异，以确保多样性。
+4. 生成的样本应为简体中文。
 
-The task depends on a user input and a generated content. So, the sample content must include all the relevant parts.
-    -The sample content structure should be as follows:
-        1. First write the user input.
-        2. Then write the generated content of the model on this user input. The generated content is a rephrased user input.
-     The style of the separation and the indication of the different parts, should be different in each sample.
+这项任务取决于用户输入和生成的内容。因此，示例内容必须包括所有相关部分。
+    -样本内容结构如下：
+        1. 首先编写用户输入。
+        2. 然后根据用户输入生成内容。生成内容是对用户输入内容的重新表述。
+     在每个样本中，分隔的风格和不同部分的指示都应不同。

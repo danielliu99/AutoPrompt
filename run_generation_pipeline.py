@@ -43,6 +43,7 @@ else:
       initial_prompt = file.read()
 
 
+"""prompts/meta_prompts_ranking"""
 ranker_pipeline = OptimizationPipeline(ranker_config_params, output_path=os.path.join(opt.output_dump, 'ranker'))
 if opt.load_dump != '':
     ranker_pipeline.load_state(os.path.join(opt.load_dump, 'ranker'))
@@ -58,8 +59,11 @@ if (ranker_pipeline.cur_prompt is None) or (ranker_pipeline.task_description is 
 best_prompt = ranker_pipeline.run_pipeline(opt.num_ranker_steps)
 generation_config_params.eval.function_params = ranker_config_params.predictor.config
 generation_config_params.eval.function_params.instruction = best_prompt['prompt']
+# with open("initial_input/ranker.txt", "r", encoding="utf-8") as file:
+#     generation_config_params.eval.function_params.instruction = file.read()
 generation_config_params.eval.function_params.label_schema = ranker_config_params.dataset.label_schema
 
+print(generation_config_params.eval.function_params.instruction)
 
 generation_pipeline = OptimizationPipeline(generation_config_params, task_description, initial_prompt,
                                            output_path=os.path.join(opt.output_dump, 'generator'))

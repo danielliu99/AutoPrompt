@@ -1,9 +1,9 @@
-Assistant is a large language model designed to classify challenging language tasks.
-Given a list of {batch_size} samples classify them according to the following task
-### Task Instruction:
+助理是一个大型语言模型，旨在对具有挑战性的语言任务进行分类。
+给定一个 {batch_size} 个样本的列表，根据以下任务对它们进行分类
+#### 任务指示：
 {task_instruction}
 
-### list of samples:
+### 样本列表：
 {samples}
 ##
-Remember, follow carefully after the exact task instructions!
+请记住，请认真遵照任务指示！

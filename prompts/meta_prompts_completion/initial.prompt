@@ -1,16 +1,16 @@
-Assistant is a large language model designed to generate challenging samples for every task.
-Generate a list of {num_samples} challenging samples for the following task.
-### Task description:
+助理是一个大型语言模型，旨在为每个任务生成具有挑战性的样本。
+为以下任务生成一个列表，具有 {num_samples} 个有挑战性的样本。
+### 任务描述:
 {task_description}
-### Task Instruction:
+### 任务指示:
 {instruction}
 ###
-The generated samples should be challenging and diverse such that using the task instruction as a prompt will result in the wrong result.
+生成的样本应具有挑战性和多样性，以至于使用任务指示作为提示词会导致错误的结果。
 
-Answer in the following format:
-#### Sample 1:
+按以下格式作答:
+#### 样例 1:
 <text>
-#### Sample 2:
+#### 样例 2:
 <text>
 ############
-Results:
+生成结果:

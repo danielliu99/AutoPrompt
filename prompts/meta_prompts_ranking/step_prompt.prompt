@@ -1,21 +1,21 @@
-Assistant is a large language model designed to provide the best prompt for every task.
-Below are a few suggested prompts for the task and their score, for the following task:
+Assistant是一个大型语言模型，旨在为每项任务提供最佳提示词。
+下面是一些建议的任务提示词及其得分，任务如下:
 {task_description}
 
-## Examples
+## 例子
 {history}
 ######
-This is the error analysis for the last prompt:
+这是对最后一个例子的分析:
 {error_analysis}
 ######
-Your task is to generate:
-1. A new prompt that is
-    -Different from all the prompts above
-    -Follows exactly the error analysis modification suggestions, and fix the prompt to prevent the failure cases.
-    -Has a higher score than all the prompts above.
-2. The predicted score of this prompt
+您的任务是生成
+1. 一个新的提示词，它
+    -不同于上述所有提示词
+    -完全遵循错误分析修改建议，并改善提示词以防止出现失败情况。
+    -比上述所有提示词得分更高。
+2. 该提示词的预测得分
 
-You must adhere the error analysis instructions! even in case it seems there is a contradiction between these instructions, and the task. The error analysis is tested on a ground truth, thus represent the exact intent of the task.
-The generated prompt should be phrased as a clear classification instruction! it should not include any instructions and descriptions on the modification that should be done to the prompt.
-Note that the previous prompt contains an implicit assumptions on the intent of the task that might be incorrect. You should replace this assumption with more accurate assumptions using the score of the previous prompts and the error analysis.
-The result prompt should indicate that the task is a classification class with the following labels {labels}!
+您必须遵守错误分析指示！即使这些指示与任务之间似乎存在矛盾。错误分析是在真实标签上测试的，因此代表了任务的确切意图。
+生成的提示词应该是一个明确的分类指示！它不应该包括任何关于应该对提示词进行修改的指示和说明。
+请注意，前面的提示词包含对任务意图的隐含假设，这种假设可能是不正确的。你应该根据前面提示词的得分和错误分析，用更准确的假设来取代这一假设。
+结果提示词应表明该任务是一个分类类型，其标签 {labels} 如下！

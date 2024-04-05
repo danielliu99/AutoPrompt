@@ -48,12 +48,14 @@ class OptimizationPipeline:
         self.dataset = None
         self.config = config
         self.meta_chain = MetaChain(config)
+        """prompts/meta_prompts_generation"""
         self.initialize_dataset()
 
         self.task_description = task_description
         self.cur_prompt = initial_prompt
 
         self.predictor = give_estimator(config.predictor)
+        """'prompts/predictor_completion/prediction_generation.prompt'"""
         self.annotator = give_estimator(config.annotator)
         self.eval = Eval(config.eval, self.meta_chain.error_analysis, self.dataset.label_schema)
         self.batch_id = 0
@@ -226,7 +228,7 @@ class OptimizationPipeline:
         """
         This is the main optimization process step.
         """
-        self.log_and_print(f'Starting step {self.batch_id}')
+        self.log_and_print(f'\n \n Starting step {self.batch_id}')
         if len(self.dataset.records) == 0:
             self.log_and_print('Dataset is empty generating initial samples')
             self.generate_initial_samples()
