@@ -56,11 +56,10 @@ if (ranker_pipeline.cur_prompt is None) or (ranker_pipeline.task_description is 
     ranker_pipeline.cur_prompt = ranker_mod_prompt
     ranker_pipeline.task_description = ranker_mod_task_desc
 
-best_prompt = ranker_pipeline.run_pipeline(opt.num_ranker_steps)
+# best_prompt = ranker_pipeline.run_pipeline(opt.num_ranker_steps)
 generation_config_params.eval.function_params = ranker_config_params.predictor.config
-generation_config_params.eval.function_params.instruction = best_prompt['prompt']
-# with open("initial_input/ranker.txt", "r", encoding="utf-8") as file:
-#     generation_config_params.eval.function_params.instruction = file.read()
+# generation_config_params.eval.function_params.instruction = best_prompt['prompt']
+generation_config_params.eval.function_params.instruction = ranker_config_params.annotator.config.instruction
 generation_config_params.eval.function_params.label_schema = ranker_config_params.dataset.label_schema
 
 print(generation_config_params.eval.function_params.instruction)

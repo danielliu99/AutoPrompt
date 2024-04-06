@@ -12,7 +12,7 @@ predictor:
     config:
         llm:
             type: 'OpenAI' # 'OpenAI'
-            name: 'gpt-4' #'gpt-3.5-turbo'
+            name: 'gpt-3.5-turbo' #'gpt-3.5-turbo'
 #            async_params:
 #                retry_interval: 10
 #                max_retries: 2
@@ -41,11 +41,11 @@ eval:
 
 llm:
     type: 'OpenAI'
-    name: 'gpt-4'
+    name: 'gpt-3.5-turbo'
     temperature: 0.8
 
 stop_criteria:
-    max_usage: 2 #In $ in case of OpenAI models, otherwise number of tokens
+    max_usage: 4 #In $ in case of OpenAI models, otherwise number of tokens
     patience: 10 # Number of patience steps
     min_delta: 0.01 # Delta for the improvement definition
 
@@ -54,7 +54,7 @@ annotator:
   config:
       llm:
           type: 'OpenAI'
-          name: 'gpt-4'
+          name: 'gpt-3.5-turbo'
       instruction:
           "评估这个生成的内容：
           1. 符合了用户输入{'user'}的意图，
@@ -62,12 +62,6 @@ annotator:
           3. 是简体中文语言。
           如果这三个答案都是'是'，那么回复'1'，否则回复'0'
           "
-#          "Assess this generated message,
-#          1. does it align with the intent of user input,
-#          2. does it rephrase user input,
-#          3. is it in Simplified Chinese?
-#          If all the three answers are Yes, then response '1', otherwise response '0'"
-
       num_workers: 5
       prompt: 'prompts/predictor_completion/prediction.prompt'
       mini_batch_size: 1

@@ -192,6 +192,7 @@ class OptimizationPipeline:
                                                    self.config.meta_prompts.samples_generation_batch)
 
         samples_batches = self.meta_chain.initial_chain.batch_invoke(batch_inputs, self.config.meta_prompts.num_workers)
+        """prompts/meta_prompts_generation/initial.prompt"""
         samples_list = [element for sublist in samples_batches for element in sublist['samples']]
         samples_list = self.dataset.remove_duplicates(samples_list)
         self.dataset.add(samples_list, 0)
@@ -239,18 +240,18 @@ class OptimizationPipeline:
                 {"Prompt": wandb.Html(f"<p>{self.cur_prompt}</p>"), "Samples": wandb.Table(dataframe=random_subset)},
                 step=self.batch_id)
 
-        logging.info('Running annotator')
+        self.log_and_print('Running annotator')
         records = self.annotator.apply(self.dataset, self.batch_id)
         self.dataset.update(records)
 
         self.predictor.cur_instruct = self.cur_prompt
-        logging.info('Running Predictor')
+        self.log_and_print('Running Predictor')
         records = self.predictor.apply(self.dataset, self.batch_id, leq=True)
         self.dataset.update(records)
 
         self.eval.dataset = self.dataset.get_leq(self.batch_id)
         self.eval.eval_score()
-        logging.info('Calculating Score')
+        self.log_and_print('Calculating Score')
         large_errors = self.eval.extract_errors()
         self.eval.add_history(self.cur_prompt, self.task_description)
         if self.config.use_wandb:
